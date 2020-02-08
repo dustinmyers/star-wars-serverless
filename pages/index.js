@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import Head from "../components/head";
-import Nav from "../components/Nav/nav";
+import Nav from "../components/Nav";
 import Characters from "../components/Characters";
 
 const Home = () => {
