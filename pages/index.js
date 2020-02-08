@@ -4,19 +4,21 @@ import useSWR from "swr";
 
 import Characters from "../components/Characters";
 
-const API_URL = "https://swapi.co/api/people/";
-async function fetcher() {
-  const res = await fetch(API_URL);
+async function fetcher(path) {
+  const res = await fetch(path);
   const json = await res.json();
   return json;
 }
 
 const Home = () => {
   const [characters, setCharacters] = useState([]);
-  const { data, error } = useSWR("/repos/zeit/next.js", fetcher);
+  const { data } = useSWR("/api/get-character-list", fetcher);
 
   useEffect(() => {
-    setCharacters(data.results);
+    if (data && !data.error) {
+      console.log(data);
+      setCharacters(data.characters);
+    }
   }, [data]);
 
   return (
