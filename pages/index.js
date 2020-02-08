@@ -1,25 +1,26 @@
 import React, { useEffect, useState } from "react";
-import Link from "next/link";
-import Head from "../components/head";
-import Nav from "../components/Nav";
+import fetch from "unfetch";
+import useSWR from "swr";
+
 import Characters from "../components/Characters";
+
+const API_URL = "https://swapi.co/api/people/";
+async function fetcher() {
+  const res = await fetch(API_URL);
+  const json = await res.json();
+  return json;
+}
 
 const Home = () => {
   const [characters, setCharacters] = useState([]);
+  const { data, error } = useSWR("/repos/zeit/next.js", fetcher);
 
   useEffect(() => {
-    async function getData() {
-      const res = await fetch("https://swapi.co/api/people/");
-      const { results } = await res.json();
-      setCharacters(results);
-    }
-    getData();
-  }, []);
+    setCharacters(data.results);
+  }, [data]);
 
   return (
     <div>
-      <Head title="Star Wars Characters" />
-      <Nav />
       <main className="App">
         <Characters characters={characters} />
       </main>
