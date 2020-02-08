@@ -1,0 +1,31 @@
+.characterList {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.characterCard {
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  border-radius: 6px;
+  background-color: #ffffff;
+  width: 30%;
+  min-width: 300px;
+  margin: 16px 0;
+}
+
+.character {
+  padding: 16px;
+}
+
+.characterImage {
+  width: 100%;
+}
+
+.characterDetails {
+  margin-bottom: 4px;
+  color: rgb(98, 98, 98);
+}
+
+.dividerTop {
+  border-top: 1px solid rgb(234, 234, 234);
+}
