@@ -10,10 +10,10 @@ const images = [
   "https://pm1.narvii.com/6293/db859b249381c30a6be8f8242046105e552cd54d_00.jpg",
   "https://lumiere-a.akamaihd.net/v1/images/r5-d4_main_image_7d5f078e.jpeg?region=374%2C0%2C1186%2C666&width=960",
   "https://lumiere-a.akamaihd.net/v1/images/image_606ff7f7.jpeg?region=0%2C0%2C1560%2C878&width=960",
-  "https://s.abcnews.com/images/Entertainment/ht_alec_guinness_obi_wan_kenobi_star_wars_jc_160415_16x9_992.jpg"
+  "https://s.abcnews.com/images/Entertainment/ht_alec_guinness_obi_wan_kenobi_star_wars_jc_160415_16x9_992.jpg",
 ];
-const fetchCharacter = async id => {
-  const res = await fetch(`https://swapi.co/api/people/${id}`);
+const fetchCharacter = async (id) => {
+  const res = await fetch(`https://swapi.py4e.com/api/people/${id}`);
   const data = await res.json();
   return data;
 };
